@@ -13,8 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TGroup } from '~/types/group'
-import type { TTvShow } from '~/types/tvShow'
+import type { TGroup, TTvShow } from '~/types/types'
 
 defineProps({
   genreGroups: { type: Array<TGroup>, required: true },
