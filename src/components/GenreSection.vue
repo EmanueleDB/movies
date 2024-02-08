@@ -1,27 +1,26 @@
 <template>
-  <template v-for="genre of genreGroups" :key="genre.TvShows">
-    <div
-      class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8"
-    >
-      <div v-for="show of genre.TvShows" :key="show.name">
-        <div class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 border rounded-lg">
-          <div class="aspect-w-16 aspect-h-9">
-            <img
-              class="object-cover shadow-md hover:shadow-xl rounded-lg"
-              :src="show.image.original"
-              alt=""
-            />
-          </div>
+  <div class="flex flex-col p-4">
+    <div v-for="genre of genreGroups" :key="genre.genre" class="flex flex-col">
+      <h2 class="mt-3 text-xl">{{ genre.genre }}</h2>
+
+      <div class="flex overflow-x-auto h-40 lg:h-80">
+        <div v-for="show of sortedShows(genre.TvShows)" :key="show.name">
+          <ShowCard :show="show" />
         </div>
-      </div></div
-  ></template>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import type { TGroup } from '~/types/group'
+import type { TTvShow } from '~/types/tvShow'
 
 defineProps({
   genreGroups: { type: Array<TGroup>, required: true },
 })
+
+const sortedShows = (shows: TTvShow[]) => {
+  return [...shows].sort((a, b) => b.rating.average - a.rating.average)
+}
 </script>
-The name

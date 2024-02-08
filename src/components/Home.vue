@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div>
     <GenreSection :genre-groups="genreGroups" />
   </div>
 </template>
