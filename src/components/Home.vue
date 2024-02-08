@@ -1,11 +1,30 @@
 <template>
-  <div>{{ tvShows }}</div>
+  <div>
+    <GenreSection :genre-groups="genreGroups" />
+  </div>
 </template>
 
 <script setup lang="ts">
-const store = useStore()
+import type { TGroup } from '~/types/group'
+import type { TTvShow } from '~/types/tvShow'
 
-const tvShows = computed(() => {
-  return store.tvShows
+const { data } = await useFetch<Array<TTvShow>>('https://api.tvmaze.com/shows')
+
+const genreGroups = computed(() => {
+  if (data.value) return groupByGenre(data.value)
 })
+
+const groupByGenre = (data: Array<TTvShow>) => {
+  return data.reduce((acc: Array<TGroup>, tvShow: TTvShow) => {
+    tvShow.genres.forEach((genre: string) => {
+      const genreGroup = acc.find((group: TGroup) => group.genre === genre)
+      if (genreGroup) {
+        genreGroup.TvShows.push(tvShow)
+      } else {
+        acc.push({ genre, TvShows: [tvShow] })
+      }
+    })
+    return acc
+  }, [])
+}
 </script>

@@ -17,9 +17,6 @@ export default defineNuxtConfig({
     xssValidator: false,
     rateLimiter: false,
   },
-  imports: {
-    dirs: ['store'],
-  },
   typescript: {
     typeCheck: 'build',
   },
