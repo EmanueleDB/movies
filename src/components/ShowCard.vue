@@ -9,16 +9,10 @@
 </template>
 
 <script setup lang="ts">
+import type { PropType } from 'vue'
 import type { TTvShow } from '~/types/tvShow'
 
-const props = defineProps({
+defineProps({
   show: { type: Object as PropType<TTvShow>, required: true },
-})
-
-let sortedGroup = ref<Array<TTvShow>>([])
-
-const sortedByRating = computed(() => {
-  sortedGroup = props.show
-  sortedGroup = sortedGroup.sort((a, b) => b.rating.average - a.rating.average)
 })
 </script>
