@@ -26,8 +26,6 @@
     "@nuxtjs/tailwindcss": "^6.11.3",
     "@pinia/nuxt": "0.5.1",
     "defu": "^6.1.4",
-    "nuxt-icon": "^0.6.8",
-    "pinia": "2.1.7",
     "prettier": "3.2.5"
   }
 }
