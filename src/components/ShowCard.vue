@@ -1,10 +1,10 @@
 <template>
   <div
-    class="h-full w-28 lg:w-52 hover:cursor-pointer mr-4"
+    class="h-full w-28 lg:w-52 hover:cursor-pointer mr-4 rounded-lg"
     @click="showSlide = true"
   >
     <img
-      class="h-full object-cover shadow-md hover:shadow-xl rounded-lg"
+      class="h-full object-cover rounded-lg transition-transform duration-200 hover:scale-95 shadow-black shadow-md"
       :src="show.image.original"
       :alt="show.image.original"
     />

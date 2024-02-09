@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!genreGroups" class="flex justify-center">
+  <div v-if="!data" class="flex justify-center mt-3">
     <Icon name="svg-spinners:blocks-shuffle-3" size="50" />
   </div>
   <GenreSection v-else :genre-groups="genreGroups" />
@@ -8,7 +8,10 @@
 <script setup lang="ts">
 import type { TGroup, TTvShow } from '~/types/types'
 
-const { data } = await useFetch<Array<TTvShow>>('https://api.tvmaze.com/shows')
+const { data } = await useFetch<Array<TTvShow>>(
+  'https://api.tvmaze.com/shows',
+  { server: false },
+)
 
 const genreGroups = computed(() => {
   if (data.value) return groupByGenre(data.value)

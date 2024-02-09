@@ -9,6 +9,13 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        navigation: '#1d1d17',
+        primary: '#50968f',
+      },
+      spacing: {
+        '13': '3.25rem',
+      },
       fontFamily: {
         montserrat: ['Montserrat', 'serif'],
         openSans: ['Open Sans', 'serif'],

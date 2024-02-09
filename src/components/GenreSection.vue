@@ -1,12 +1,11 @@
 <template>
-  <div class="flex flex-col px-4">
+  <div class="flex flex-col px-10">
     <div
       v-for="genre of genreGroups"
       :key="genre.genre"
       class="flex flex-col relative group"
     >
-      <h2 class="mt-3 text-2xl">{{ genre.genre }}</h2>
-
+      <h2 class="text-primary mt-3 text-2xl">{{ genre.genre }}</h2>
       <div
         :ref="(el) => setGenreRef(genre.genre, el as HTMLDivElement)"
         class="flex overflow-x-auto h-40 lg:h-80 scroll-smooth"
@@ -17,21 +16,25 @@
       </div>
 
       <div
-        class="hidden lg:flex lg:absolute lg:top-0 lg:left-0 lg:h-full lg:w-10 lg:bg-gradient-to-r lg:from-white lg:to-transparent lg:opacity-0 lg:group-hover:opacity-100 lg:items-center lg:justify-center lg:cursor-pointer"
+        class="hidden lg:flex lg:absolute lg:top-7 lg:h-full lg:-left-8 lg:w-10 lg:opacity-0 lg:group-hover:opacity-100 lg:items-center lg:justify-center lg:cursor-pointer"
         @click="scrollLeft(genre.genre)"
       >
         <Icon
-          class="transform rotate-180"
+          class="transform rotate-180 text-primary"
           name="material-symbols:play-arrow-outline-rounded"
           size="50"
         />
       </div>
 
       <div
-        class="hidden lg:flex lg:absolute lg:top-0 lg:right-0 lg:h-full lg:w-10 lg:bg-gradient-to-l lg:from-white lg:to-transparent lg:opacity-0 lg:group-hover:opacity-100 lg:items-center lg:justify-center lg:cursor-pointer"
+        class="hidden lg:flex lg:absolute lg:top-7 lg:-right-8 lg:h-full lg:w-10 lg:opacity-0 lg:group-hover:opacity-100 lg:items-center lg:justify-center lg:cursor-pointer"
         @click="scrollRight(genre.genre)"
       >
-        <Icon name="material-symbols:play-arrow-outline-rounded" size="50" />
+        <Icon
+          class="text-primary"
+          name="material-symbols:play-arrow-outline-rounded"
+          size="50"
+        />
       </div>
     </div>
   </div>
