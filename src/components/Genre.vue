@@ -11,7 +11,7 @@
         class="flex overflow-x-auto h-40 lg:h-80 scroll-smooth"
       >
         <div v-for="show of sortedShows(genre.TvShows)" :key="show.name">
-          <ShowCard :show="show" />
+          <TvShow :show="show" />
         </div>
       </div>
 

@@ -1,8 +1,8 @@
 <template>
   <div v-if="!data" class="flex justify-center mt-3">
-    <Icon name="svg-spinners:blocks-shuffle-3" size="50" />
+    <Icon class="text-primary" name="svg-spinners:blocks-shuffle-3" size="50" />
   </div>
-  <GenreSection v-else :genre-groups="genreGroups" />
+  <Genre v-else :genre-groups="genreGroups" />
 </template>
 
 <script setup lang="ts">
