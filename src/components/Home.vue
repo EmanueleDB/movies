@@ -1,14 +1,17 @@
 <template>
-  <div>
-    <GenreSection :genre-groups="genreGroups" />
+  <div v-if="!data" class="flex justify-center mt-3">
+    <Icon class="text-primary" name="svg-spinners:blocks-shuffle-3" size="50" />
   </div>
+  <Genre v-else :genre-groups="genreGroups" />
 </template>
 
 <script setup lang="ts">
-import type { TGroup } from '~/types/group'
-import type { TTvShow } from '~/types/tvShow'
+import type { TGroup, TTvShow } from '~/types/types'
 
-const { data } = await useFetch<Array<TTvShow>>('https://api.tvmaze.com/shows')
+const { data } = await useFetch<Array<TTvShow>>(
+  'https://api.tvmaze.com/shows',
+  { server: false },
+)
 
 const genreGroups = computed(() => {
   if (data.value) return groupByGenre(data.value)

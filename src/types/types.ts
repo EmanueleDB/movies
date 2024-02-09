@@ -14,3 +14,8 @@ export type TTvShow = {
     average: number
   }
 }
+
+export type TGroup = {
+  genre: string
+  TvShows: Array<TTvShow>
+}
