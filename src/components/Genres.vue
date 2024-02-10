@@ -72,7 +72,6 @@ const sortedShows = (shows: TTvShow[]) => {
 }
 
 const genreRefs = ref<GenreRefs>({})
-
 const setGenreRef = (genre: string, el: HTMLDivElement | null) => {
   genreRefs.value[genre] = el
 }
