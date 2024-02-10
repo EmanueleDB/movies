@@ -10,7 +10,7 @@
         :ref="(el) => setGenreRef(genre.genre, el as HTMLDivElement)"
         class="flex overflow-x-auto h-40 lg:h-80 scroll-smooth"
       >
-        <div v-for="show of sortedShows(genre.TvShows)" :key="show.name">
+        <div v-for="show of sortedShows(genre.tvShows)" :key="show.name">
           <TvShow :show="show" />
         </div>
       </div>

@@ -32,9 +32,9 @@ const groupByGenre = (data: Array<TTvShow>) => {
     tvShow.genres.forEach((genre: string) => {
       const genreGroup = acc.find((group: TGroup) => group.genre === genre)
       if (genreGroup) {
-        genreGroup.TvShows.push(tvShow)
+        genreGroup.tvShows.push(tvShow)
       } else {
-        acc.push({ genre, TvShows: [tvShow] })
+        acc.push({ genre, tvShows: [tvShow] })
       }
     })
     return acc
@@ -79,11 +79,11 @@ const performSearch = async () => {
   } else if (filter.value === 'Genre') {
     for (const item of genreGroups.value) {
       if (item.genre.toLowerCase() === searchQuery.value.toLowerCase())
-        foundTvShows.value = item.TvShows
+        foundTvShows.value = item.tvShows
     }
   } else {
     for (const item of genreGroups.value) {
-      for (const show of item.TvShows) {
+      for (const show of item.tvShows) {
         if (
           show.network &&
           show.network.name.toLowerCase() === searchQuery.value.toLowerCase()
