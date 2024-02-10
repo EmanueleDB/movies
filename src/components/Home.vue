@@ -43,6 +43,7 @@ const groupByGenre = (data: Array<TTvShow>) => {
 
 const filter = ref('Name')
 const setFilter = (value) => {
+  searchQuery.value = ''
   filter.value = value
 }
 
