@@ -3,7 +3,13 @@ export default defineNuxtConfig({
     cssPath: ['~/assets/css/tailwind.css', { injectPosition: 'first' }],
     configPath: 'tailwind.config',
   },
-  modules: ['@pinia/nuxt', 'nuxt-security', '@nuxtjs/tailwindcss', 'nuxt-icon'],
+  modules: [
+    '@pinia/nuxt',
+    'nuxt-security',
+    '@nuxtjs/tailwindcss',
+    'nuxt-icon',
+    '@vueuse/nuxt',
+  ],
   security: {
     headers: {
       crossOriginEmbedderPolicy: 'unsafe-none',

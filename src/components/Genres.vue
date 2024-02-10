@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col px-10">
+  <div class="flex flex-col">
     <div
       v-for="genre of genreGroups"
       :key="genre.genre"
