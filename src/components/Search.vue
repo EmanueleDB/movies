@@ -35,7 +35,10 @@
       >
         <div v-for="filter of ['Name', 'Network', 'Genre']" :key="filter">
           <span
-            class="block px-4 py-2 text-sm hover:bg-primary hover:cursor-pointer hover:text-white rounded"
+            :class="[
+              'block px-4 py-2 text-sm hover:bg-primary hover:cursor-pointer hover:text-white rounded',
+              { 'text-white bg-primary': active === filter },
+            ]"
             @click="emitFilter(filter)"
             >{{ filter }}</span
           >
@@ -52,7 +55,9 @@ const model = defineModel({ type: String, default: '' })
 const open = ref(false)
 const emit = defineEmits(['filter'])
 
+const active = ref('Name')
 const emitFilter = (filter) => {
+  active.value = filter
   emit('filter', filter)
   open.value = false
 }
