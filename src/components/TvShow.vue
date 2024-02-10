@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-full w-28 lg:w-52 hover:cursor-pointer mr-4 rounded-lg"
+    class="h-full w-28 lg:w-52 hover:cursor-pointer mr-2 lg:mr-4 rounded-lg"
     @click="fetchSeasons(show.id)"
   >
     <img
