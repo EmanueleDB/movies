@@ -10,13 +10,21 @@
         :ref="(el) => setGenreRef(genre.genre, el as HTMLDivElement)"
         class="flex overflow-x-auto h-40 lg:h-80 scroll-smooth"
       >
-        <div v-for="show of sortedShows(genre.TvShows)" :key="show.name">
+        <div v-for="show of sortedShows(genre.tvShows)" :key="show.name">
           <TvShow :show="show" />
         </div>
       </div>
 
       <div
-        class="hidden lg:flex lg:absolute lg:top-7 lg:h-full lg:-left-8 lg:w-10 lg:opacity-0 lg:group-hover:opacity-100 lg:items-center lg:justify-center lg:cursor-pointer"
+        :class="[
+          'hidden lg:absolute lg:top-7 lg:h-full lg:-left-8 lg:w-10 lg:opacity-0 lg:group-hover:opacity-100 lg:items-center lg:justify-center lg:cursor-pointer',
+          [genre.tvShows.length < 6 ? 'lg:hidden' : 'lg:flex'],
+          [
+            genre.tvShows.length < 7
+              ? 'xl:hidden lg:hidden'
+              : 'lg:flex xl:flex',
+          ],
+        ]"
         @click="scrollLeft(genre.genre)"
       >
         <Icon
@@ -27,7 +35,15 @@
       </div>
 
       <div
-        class="hidden lg:flex lg:absolute lg:top-7 lg:-right-8 lg:h-full lg:w-10 lg:opacity-0 lg:group-hover:opacity-100 lg:items-center lg:justify-center lg:cursor-pointer"
+        :class="[
+          'hidden lg:flex lg:absolute lg:top-7 lg:-right-8 lg:h-full lg:w-10 lg:opacity-0 lg:group-hover:opacity-100 lg:items-center lg:justify-center lg:cursor-pointer',
+          [genre.tvShows.length < 6 ? 'lg:hidden' : 'lg:flex'],
+          [
+            genre.tvShows.length < 7
+              ? 'xl:hidden lg:hidden'
+              : 'lg:flex xl:flex',
+          ],
+        ]"
         @click="scrollRight(genre.genre)"
       >
         <Icon

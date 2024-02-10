@@ -17,5 +17,5 @@ export type TTvShow = {
 
 export type TGroup = {
   genre: string
-  TvShows: Array<TTvShow>
+  tvShows: Array<TTvShow>
 }
