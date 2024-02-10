@@ -30,6 +30,7 @@
 
       <div
         v-if="open"
+        ref="dropdown"
         class="z-50 rounded origin-top-right absolute right-0 lg:left-0 mt-2 w-40 shadow-xl bg-white ring-1 ring-black ring-opacity-5"
       >
         <div v-for="filter of ['Name', 'Network', 'Genre']" :key="filter">
@@ -45,6 +46,8 @@
 </template>
 
 <script setup lang="ts">
+import { onClickOutside } from '@vueuse/core'
+
 const model = defineModel({ type: String, default: '' })
 const open = ref(false)
 const emit = defineEmits(['filter'])
@@ -53,6 +56,11 @@ const emitFilter = (filter) => {
   emit('filter', filter)
   open.value = false
 }
+
+const dropdown = ref(null)
+onClickOutside(dropdown, () => {
+  if (open.value) open.value = false
+})
 </script>
 
 <style scoped>
