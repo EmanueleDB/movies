@@ -5,9 +5,9 @@
       :key="genre.genre"
       class="flex flex-col relative group"
     >
-      <h2 class="text-primary mt-3 text-2xl dark:text-white">
+      <h1 class="text-primary mt-3 text-2xl dark:text-white">
         {{ genre.genre }}
-      </h2>
+      </h1>
       <div
         :ref="(el) => setGenreRef(genre.genre, el as HTMLDivElement)"
         class="flex overflow-x-auto h-40 lg:h-80 scroll-smooth"

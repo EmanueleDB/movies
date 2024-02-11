@@ -31,13 +31,17 @@
       <div
         v-if="open"
         ref="dropdown"
-        class="z-50 rounded origin-top-right absolute right-0 lg:left-0 mt-2 w-40 shadow-xl bg-white dark:bg-gray-600 ring-1 ring-black ring-opacity-5"
+        class="z-50 rounded origin-top-right absolute right-0 lg:left-0 mt-2 w-40 shadow-inner dark:shadow-white bg-white dark:bg-gray-600 ring-1 ring-black ring-opacity-5"
       >
         <div v-for="filter of ['Name', 'Network', 'Genre']" :key="filter">
           <span
             :class="[
-              'block px-4 py-2 text-sm hover:bg-primary dark:hover:bg-white dark:hover:text-black hover:cursor-pointer hover:text-white rounded dark:text-white',
-              { 'text-primary dark:text-primary': active === filter },
+              'block px-4 py-2 hover:bg-primary dark:hover:bg-white hover:cursor-pointer rounded text-lg',
+              [
+                active === filter
+                  ? 'text-primary dark:text-primary hover:text-white'
+                  : 'text-black hover:text-white dark:text-white dark:hover:text-black',
+              ],
             ]"
             @click="emitFilter(filter)"
             >{{ filter }}</span

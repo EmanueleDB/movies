@@ -12,7 +12,7 @@
     <Slide v-if="showSlide" @close="showSlide = false">
       <div class="flex">
         <div class="flex flex-col px-2 lg:px-8">
-          <h2 class="text-2xl dark:text-white">{{ show.name }}</h2>
+          <h1 class="text-2xl dark:text-white">{{ show.name }}</h1>
           <span class="dark:text-white">
             <Icon
               class="text-primary dark:text-white"
