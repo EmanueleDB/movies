@@ -33,7 +33,4 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: 'build',
   },
-  nitro: {
-    preset: 'netlify',
-  },
 })
