@@ -13,7 +13,7 @@
         >
           <div
             :class="[
-              'absolute top-0 max-h-svh min-h-svh w-full sm:w-[576px] md:w-[1140px] max-w-full overflow-y-auto overflow-x-hidden transition-all duration-700 ',
+              'absolute top-0 max-h-svh min-h-svh w-full sm:w-[576px] md:w-[1140px] max-w-full overflow-y-auto overflow-x-hidden transition-all duration-700',
               [
                 active
                   ? 'opacity-1 visible right-0 mt-0 translate-x-0 transform delay-200'
@@ -22,11 +22,11 @@
             ]"
           >
             <div
-              class="pointer-events-auto relative bg-white p-2 shadow-md"
+              class="pointer-events-auto relative bg-white p-2 shadow-md dark:bg-gray-600"
               style="height: inherit; min-height: inherit"
             >
               <Icon
-                class="sticky left-full top-2 z-20 mb-6 backdrop-blur-md"
+                class="sticky left-full top-2 z-20 mb-6 backdrop-blur-md dark:text-white"
                 name="clarity:times-circle-line"
                 size="30"
                 @click="closeSlide"

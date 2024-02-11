@@ -34,6 +34,9 @@ devDependencies:
   '@nuxt/test-utils':
     specifier: ^3.11.0
     version: 3.11.0(@vue/test-utils@2.4.4)(h3@1.10.1)(happy-dom@13.3.8)(vite@5.0.12)(vitest@1.2.2)(vue-router@4.2.5)(vue@3.4.15)
+  '@nuxtjs/color-mode':
+    specifier: ^3.3.2
+    version: 3.3.2
   '@nuxtjs/eslint-config-typescript':
     specifier: 12.1.0
     version: 12.1.0(eslint@8.56.0)(typescript@5.3.3)
@@ -1806,6 +1809,20 @@ packages:
     transitivePeerDependencies:
       - debug
     dev: false
+
+  /@nuxtjs/color-mode@3.3.2:
+    resolution:
+      {
+        integrity: sha512-BLpBfrYZngV2QWFQ4HNEFwAXa3Pno43Ge+2XHcZJTTa1Z4KzRLvOwku8yiyV3ovIaaXKGwduBdv3Z5Ocdp0/+g==,
+      }
+    dependencies:
+      '@nuxt/kit': 3.10.1
+      lodash.template: 4.5.0
+      pathe: 1.1.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
 
   /@nuxtjs/eslint-config-typescript@12.1.0(eslint@8.56.0)(typescript@5.3.3):
     resolution:
@@ -7290,6 +7307,13 @@ packages:
     dependencies:
       p-locate: 5.0.0
 
+  /lodash._reinterpolate@3.0.0:
+    resolution:
+      {
+        integrity: sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==,
+      }
+    dev: true
+
   /lodash.defaults@4.2.0:
     resolution:
       {
@@ -7313,6 +7337,25 @@ packages:
       {
         integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==,
       }
+
+  /lodash.template@4.5.0:
+    resolution:
+      {
+        integrity: sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==,
+      }
+    dependencies:
+      lodash._reinterpolate: 3.0.0
+      lodash.templatesettings: 4.2.0
+    dev: true
+
+  /lodash.templatesettings@4.2.0:
+    resolution:
+      {
+        integrity: sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==,
+      }
+    dependencies:
+      lodash._reinterpolate: 3.0.0
+    dev: true
 
   /lodash.uniq@4.5.0:
     resolution:

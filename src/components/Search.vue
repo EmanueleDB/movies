@@ -5,39 +5,39 @@
         v-model="model"
         type="search"
         placeholder="Search for a TV show"
-        class="w-full pl-7 py-2 rounded outline-0 border-primary border-2 appearance-none"
+        class="w-full dark:text-white pl-7 py-2 rounded outline-0 border-primary dark:border-white border-4 appearance-none dark:bg-gray-600"
       />
       <Icon
         v-if="model"
         name="ic:baseline-clear"
         size="20"
-        class="text-primary absolute right-2 top-3"
+        class="text-primary absolute right-2 top-3 dark:text-white"
         @click="model = ''"
       />
       <Icon
         name="material-symbols:search-rounded"
         size="20"
-        class="text-primary absolute left-2 top-3"
+        class="text-primary absolute left-2 top-3 dark:text-white"
       />
     </div>
     <div class="relative inline-block text-left">
       <Icon
         name="material-symbols-light:filter-alt-outline-sharp"
         size="40"
-        class="text-primary"
+        class="text-primary dark:text-white"
         @click="open = !open"
       />
 
       <div
         v-if="open"
         ref="dropdown"
-        class="z-50 rounded origin-top-right absolute right-0 lg:left-0 mt-2 w-40 shadow-xl bg-white ring-1 ring-black ring-opacity-5"
+        class="z-50 rounded origin-top-right absolute right-0 lg:left-0 mt-2 w-40 shadow-xl bg-white dark:bg-gray-600 ring-1 ring-black ring-opacity-5"
       >
         <div v-for="filter of ['Name', 'Network', 'Genre']" :key="filter">
           <span
             :class="[
-              'block px-4 py-2 text-sm hover:bg-primary hover:cursor-pointer hover:text-white rounded',
-              { 'text-primary': active === filter },
+              'block px-4 py-2 text-sm hover:bg-primary dark:hover:bg-white dark:hover:text-black hover:cursor-pointer hover:text-white rounded dark:text-white',
+              { 'text-primary dark:text-primary': active === filter },
             ]"
             @click="emitFilter(filter)"
             >{{ filter }}</span

@@ -1,6 +1,10 @@
 <template>
   <div v-if="!data" class="flex justify-center mt-3">
-    <Icon class="text-primary" name="svg-spinners:blocks-shuffle-3" size="50" />
+    <Icon
+      class="text-primary dark:text-white"
+      name="svg-spinners:blocks-shuffle-3"
+      size="50"
+    />
   </div>
   <div v-else class="flex flex-col mt-4 lg:mt-8 px-4 lg:px-10 h-full">
     <Search v-model="searchQuery" @filter="setFilter" />
