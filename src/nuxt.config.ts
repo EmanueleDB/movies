@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'nuxt-icon',
     '@vueuse/nuxt',
+    '@nuxt/test-utils/module',
   ],
   security: {
     headers: {

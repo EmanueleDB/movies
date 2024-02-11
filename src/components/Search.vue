@@ -37,7 +37,7 @@
           <span
             :class="[
               'block px-4 py-2 text-sm hover:bg-primary hover:cursor-pointer hover:text-white rounded',
-              { 'text-white bg-primary': active === filter },
+              { 'text-primary': active === filter },
             ]"
             @click="emitFilter(filter)"
             >{{ filter }}</span

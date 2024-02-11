@@ -78,9 +78,8 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue'
+import Slide from './Slide.vue'
 import type { TTvShow } from '~/types/types'
-import Slide from '~/components/Slide.vue'
-import { placeholder } from '@babel/types'
 
 interface ISeason {
   id: number
