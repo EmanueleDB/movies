@@ -2,20 +2,12 @@ module.exports = {
   root: true,
   env: {
     node: true,
+    browser: true,
   },
+  extends: ['@nuxtjs/eslint-config-typescript', 'prettier'],
   plugins: ['prettier'],
-  extends: [
-    'plugin:vue/vue3-strongly-recommended',
-    'eslint:recommended',
-    'prettier',
-    '@vue/typescript/recommended',
-    'plugin:prettier/recommended',
-  ],
-  parserOptions: {
-    ecmaVersion: 2020,
-  },
   rules: {
-    'no-console': 2,
+    'no-console': 'off',
     'vue/multi-word-component-names': 'off',
     'prettier/prettier': ['error', { singleQuote: true }],
     'vue/no-unused-properties': [
