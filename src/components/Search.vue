@@ -25,7 +25,7 @@
         name="material-symbols-light:filter-alt-outline-sharp"
         size="40"
         class="text-primary dark:text-white"
-        @click="open = !open"
+        @mousedown.prevent="open = !open"
       />
 
       <div
