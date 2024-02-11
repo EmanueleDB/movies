@@ -84,35 +84,35 @@
 </template>
 
 <script setup lang="ts">
-import type { PropType } from "vue";
-import Slide from "./Slide.vue";
-import type { TTvShow } from "~/types/types";
+import type { PropType } from 'vue'
+import Slide from './Slide.vue'
+import type { TTvShow } from '~/types/types'
 
 interface ISeason {
-  id: number;
-  image: string;
+  id: number
+  image: string
 }
-const showSlide = ref(false);
+const showSlide = ref(false)
 
 defineProps({
   show: { type: Object as PropType<TTvShow>, required: true },
-});
+})
 
-const seasons = ref<ISeason[]>([]);
+const seasons = ref<ISeason[]>([])
 
 const fetchSeasons = async (id: number) => {
   const data: ISeason[] = await $fetch(
     `https://api.tvmaze.com/shows/${id}/seasons`,
-  );
-  if (!data) console.log("There are no seasons for this Tv show");
+  )
+  if (!data) console.log('There are no seasons for this Tv show')
   else {
     data.forEach((season: ISeason) => {
       seasons.value.push({
         id: season.id,
-        image: (season.image as { original?: string })?.original || "",
-      });
-    });
+        image: (season.image as { original?: string })?.original || '',
+      })
+    })
   }
-  showSlide.value = true;
-};
+  showSlide.value = true
+}
 </script>

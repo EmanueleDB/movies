@@ -60,7 +60,7 @@ const open = ref(false)
 const emit = defineEmits(['filter'])
 
 const active = ref('Name')
-const emitFilter = (filter) => {
+const emitFilter = (filter: string) => {
   active.value = filter
   emit('filter', filter)
   open.value = false

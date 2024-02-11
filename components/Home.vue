@@ -16,7 +16,7 @@
         :show="hasFilter(item)"
       />
     </div>
-    <Genres v-else :genre-groups="genreGroups" />
+    <Genres v-else :genre-groups="genreGroups || []" />
   </div>
 </template>
 
@@ -46,7 +46,7 @@ const groupByGenre = (data: Array<TTvShow>) => {
 }
 
 const filter = ref('Name')
-const setFilter = (value) => {
+const setFilter = (value: string) => {
   searchQuery.value = ''
   filter.value = value
 }
@@ -64,12 +64,12 @@ const handleSearch = () => {
   }, 500)
 }
 
-const hasFilter = (item) => {
+const hasFilter = (item: any) => {
   if (filter.value === 'Name') return item.show
   else return item
 }
 
-const foundTvShows = ref([])
+const foundTvShows = ref<TTvShow[]>([])
 const performSearch = async () => {
   foundTvShows.value = []
   if (searchQuery.value && filter.value === 'Name') {
@@ -81,18 +81,22 @@ const performSearch = async () => {
     // genres, so I preferred to use my refactored array genreGroups in which the items are already divided per genre
     // The hasFilter method is needed because the 2 array structures are different and the function will tell the components where to get the data
   } else if (filter.value === 'Genre') {
-    for (const item of genreGroups.value) {
-      if (item.genre.toLowerCase() === searchQuery.value.toLowerCase())
-        foundTvShows.value = item.tvShows
+    if (genreGroups.value) {
+      for (const item of genreGroups.value) {
+        if (item.genre.toLowerCase() === searchQuery.value.toLowerCase())
+          foundTvShows.value = item.tvShows
+      }
     }
   } else {
-    for (const item of genreGroups.value) {
-      for (const show of item.tvShows) {
-        if (
-          show.network &&
-          show.network.name.toLowerCase() === searchQuery.value.toLowerCase()
-        ) {
-          foundTvShows.value.push(show)
+    if (genreGroups.value) {
+      for (const item of genreGroups.value) {
+        for (const show of item.tvShows) {
+          if (
+            show.network &&
+            show.network.name.toLowerCase() === searchQuery.value.toLowerCase()
+          ) {
+            foundTvShows.value.push(show)
+          }
         }
       }
     }
