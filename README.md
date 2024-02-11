@@ -1,7 +1,3 @@
-Sure, I'd be happy to help improve your README. Here's a revised version with some corrections and enhancements:
-
----
-
 # Project Setup and Execution
 
 This project requires **Node v21.6.1** or higher and **npm v10.4.0**. However, it is recommended to use `pnpm` for a faster experience.
@@ -44,7 +40,3 @@ The Slide component is custom-made and styled with Tailwind. It accepts two prop
 
 - Filter button to search for a show by Name, Network, and Genre.
 - Dark mode support.
-
----
-
-I hope this helps! Let me know if you have any other questions. 😊
