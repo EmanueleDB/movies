@@ -20,7 +20,7 @@
         class="text-primary absolute left-2 top-3 dark:text-white"
       />
     </div>
-    <div class="relative inline-block text-left">
+    <div class="relative inline-block text-left hover:cursor-pointer">
       <Icon
         name="material-symbols-light:filter-alt-outline-sharp"
         size="40"
