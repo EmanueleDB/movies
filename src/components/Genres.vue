@@ -10,7 +10,7 @@
       </h1>
       <div
         :ref="(el) => setGenreRef(genre.genre, el as HTMLDivElement)"
-        class="flex overflow-x-auto h-40 lg:h-80 scroll-smooth"
+        class="flex overflow-x-auto h-40 lg:h-80 scroll-smooth no-scrollbar"
       >
         <div v-for="show of sortedShows(genre.tvShows)" :key="show.name">
           <TvShow :show="show" />
@@ -27,7 +27,7 @@
               : 'lg:flex xl:flex',
           ],
         ]"
-        @click="scrollLeft(genre.genre)"
+        @click.stop="scrollLeft(genre.genre)"
       >
         <Icon
           class="transform rotate-180 text-primary dark:text-white"
@@ -46,7 +46,7 @@
               : 'lg:flex xl:flex',
           ],
         ]"
-        @click="scrollRight(genre.genre)"
+        @click.stop="scrollRight(genre.genre)"
       >
         <Icon
           class="text-primary dark:text-white"
@@ -81,14 +81,14 @@ const setGenreRef = (genre: string, el: HTMLDivElement | null) => {
 const scrollLeft = (genre: string) => {
   const el = genreRefs.value[genre]
   if (el) {
-    el.scrollLeft -= 300
+    el.scrollLeft -= 400
   }
 }
 
 const scrollRight = (genre: string) => {
   const el = genreRefs.value[genre]
   if (el) {
-    el.scrollLeft += 300
+    el.scrollLeft += 400
   }
 }
 </script>

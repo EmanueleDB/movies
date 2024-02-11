@@ -13,7 +13,7 @@
         >
           <div
             :class="[
-              'absolute top-0 max-h-svh min-h-svh w-full sm:w-[576px] md:w-[1140px] max-w-full overflow-y-auto overflow-x-hidden transition-all duration-700',
+              'absolute top-0 max-h-svh min-h-svh w-full max-w-full overflow-y-auto overflow-x-hidden transition-all duration-700 sm:w-[576px] md:w-[1140px]',
               [
                 active
                   ? 'opacity-1 visible right-0 mt-0 translate-x-0 transform delay-200'
