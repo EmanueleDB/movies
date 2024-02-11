@@ -104,13 +104,12 @@ const fetchSeasons = async (id: number) => {
   const data: ISeason[] = await $fetch(
     `https://api.tvmaze.com/shows/${id}/seasons`,
   )
-  if (!data) console.log('There are no seasons for this Tv show')
-  else {
+  if (!data) {
+    console.log('There are no seasons for this Tv show')
+    return
+  } else {
     data.forEach((season: ISeason) => {
-      seasons.value.push({
-        id: season.id,
-        image: (season.image as { original?: string })?.original || '',
-      })
+      seasons.value.push({ id: season.id, image: season.image })
     })
   }
   showSlide.value = true
