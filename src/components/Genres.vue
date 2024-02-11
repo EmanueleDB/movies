@@ -5,7 +5,9 @@
       :key="genre.genre"
       class="flex flex-col relative group"
     >
-      <h2 class="text-primary mt-3 text-2xl">{{ genre.genre }}</h2>
+      <h2 class="text-primary mt-3 text-2xl dark:text-white">
+        {{ genre.genre }}
+      </h2>
       <div
         :ref="(el) => setGenreRef(genre.genre, el as HTMLDivElement)"
         class="flex overflow-x-auto h-40 lg:h-80 scroll-smooth"
@@ -28,7 +30,7 @@
         @click="scrollLeft(genre.genre)"
       >
         <Icon
-          class="transform rotate-180 text-primary"
+          class="transform rotate-180 text-primary dark:text-white"
           name="material-symbols:play-arrow-outline-rounded"
           size="50"
         />
@@ -47,7 +49,7 @@
         @click="scrollRight(genre.genre)"
       >
         <Icon
-          class="text-primary"
+          class="text-primary dark:text-white"
           name="material-symbols:play-arrow-outline-rounded"
           size="50"
         />

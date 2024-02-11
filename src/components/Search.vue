@@ -5,7 +5,7 @@
         v-model="model"
         type="search"
         placeholder="Search for a TV show"
-        class="w-full pl-7 py-2 rounded outline-0 border-primary border-2 appearance-none"
+        class="w-full pl-7 py-2 rounded outline-0 border-primary border-4 appearance-none dark:bg-gray-600"
       />
       <Icon
         v-if="model"

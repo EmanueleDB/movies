@@ -10,7 +10,13 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@vueuse/nuxt',
     '@nuxt/test-utils/module',
+    '@nuxtjs/color-mode',
   ],
+  colorMode: {
+    classSuffix: '',
+    preference: 'light',
+    fallback: 'light',
+  },
   security: {
     headers: {
       crossOriginEmbedderPolicy: 'unsafe-none',
