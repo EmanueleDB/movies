@@ -12,10 +12,10 @@
     <Slide v-if="showSlide" @close="showSlide = false">
       <div class="flex">
         <div class="flex flex-col px-2 lg:px-8">
-          <h2 class="text-2xl">{{ show.name }}</h2>
-          <span>
+          <h2 class="text-2xl dark:text-white">{{ show.name }}</h2>
+          <span class="dark:text-white">
             <Icon
-              class="text-primary"
+              class="text-primary dark:text-white"
               name="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media"
               size="20"
             />
@@ -28,27 +28,34 @@
               alt="image"
             />
             <div class="flex flex-col ml-3">
-              <span class="mt-3">
+              <span class="mt-3 dark:text-white">
                 <Icon
-                  class="text-primary"
+                  class="text-primary dark:text-white"
                   name="material-symbols:connected-tv-outline-sharp"
                   size="20"
                 />
                 {{ show.network.name }}</span
               >
-              <span class="mt-3">
-                <Icon class="text-primary" name="iconoir:language" size="20" />
+              <span class="mt-3 dark:text-white">
+                <Icon
+                  class="text-primary dark:text-white"
+                  name="iconoir:language"
+                  size="20"
+                />
                 {{ show.language }}</span
               >
               <div class="flex flex-wrap w-full mt-3">
                 <Icon
-                  class="text-primary"
+                  class="text-primary dark:text-white"
                   name="streamline:ai-generate-variation-spark"
                   size="20"
                 />
-                <span v-for="genre of show.genres" :key="genre" class="ml-1">{{
-                  genre
-                }}</span>
+                <span
+                  v-for="genre of show.genres"
+                  :key="genre"
+                  class="ml-1 dark:text-white"
+                  >{{ genre }}</span
+                >
               </div>
             </div>
           </div>
@@ -58,7 +65,7 @@
         v-if="seasons[0].image.length"
         class="flex flex-col mt-3 px-2 lg:px-8"
       >
-        <h3 class="text-xl">Seasons</h3>
+        <h3 class="text-xl dark:text-white">Seasons</h3>
         <div class="flex flex-wrap mt-3 w-full">
           <img
             v-for="season of seasons"
@@ -69,7 +76,7 @@
           />
         </div>
       </div>
-      <div class="flex mt-3 px-2 lg:px-8">
+      <div class="flex mt-3 px-2 lg:px-8 dark:text-white">
         <span v-html="show.summary" />
       </div>
     </Slide>

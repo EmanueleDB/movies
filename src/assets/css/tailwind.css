@@ -3,7 +3,27 @@
 @tailwind utilities;
 
 @layer base {
+  .dark {
+    @apply bg-gray-600;
+
+    body {
+      @apply bg-white;
+    }
+
+    #__nuxt {
+      @apply bg-gray-600;
+    }
+  }
   html {
     font-family: 'Montserrat', sans-serif;
+    height: 100%;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    height: inherit;
+  }
+  #__nuxt {
+    height: 100%;
+    @apply bg-white;
   }
 }
