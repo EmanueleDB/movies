@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'h-full w-28 lg:w-52 hover:cursor-pointer mr-2 lg:mr-4 rounded-lg',
+      'h-full w-28 lg:w-52 hover:cursor-pointer lg:mr-4 rounded-lg',
       [isSearch ? 'mr-1' : 'mr-2'],
     ]"
     @click="fetchSeasons(show.id)"
