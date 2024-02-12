@@ -77,16 +77,15 @@
       >
         <h3 class="text-xl dark:text-white">Seasons</h3>
         <div class="flex flex-wrap mt-3 w-full">
-          <div v-for="season of seasons" :key="season.id">
-            <img
-              v-if="season.image"
-              class="w-[calc(25%-12px)] md:w-24 h-full mr-3 mb-3"
-              :src="
-                season.image && season.image.medium ? season.image.medium : ''
-              "
-              alt="season-image"
-            />
-          </div>
+          <img
+            v-for="season of seasons"
+            :key="season.id"
+            class="w-[calc(25%-12px)] md:w-24 h-full mr-3 mb-3"
+            :src="
+              season.image && season.image.medium ? season.image.medium : ''
+            "
+            alt="season-image"
+          />
         </div>
       </div>
       <div class="flex mt-3 px-2 lg:px-8 dark:text-white">
