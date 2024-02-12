@@ -3,7 +3,7 @@ export type TTvShow = {
   name: string
   id: number
   image: {
-    original: string
+    medium: string
   }
   language: string
   network: {

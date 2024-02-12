@@ -1,12 +1,15 @@
 <template>
   <div
-    class="h-full w-28 lg:w-52 hover:cursor-pointer mr-2 lg:mr-4 rounded-lg"
+    :class="[
+      'h-full w-28 lg:w-52 hover:cursor-pointer mr-2 lg:mr-4 rounded-lg',
+      [isSearch ? 'mr-1' : 'mr-2'],
+    ]"
     @click="fetchSeasons(show.id)"
   >
-    <img
+    <NuxtImg
       class="h-full object-cover rounded-lg transition-transform duration-200 hover:scale-95 hover:shadow-black hover:shadow-md"
-      :src="show.image ? show.image.original : '/placeholder.jpg'"
-      :alt="show.image ? show.image.original : 'placeholder'"
+      :src="show.image ? show.image.medium : '/placeholder.jpg'"
+      :alt="show.image ? show.image.medium : 'placeholder'"
     />
 
     <Slide v-if="showSlide" @close="showSlide = false">
@@ -22,9 +25,9 @@
             {{ show.rating.average }}</span
           >
           <div class="flex mt-3">
-            <img
+            <NuxtImg
               class="w-48 h-60 mt-3"
-              :src="show.image.original"
+              :src="show.image.medium"
               alt="image"
             />
             <div class="flex flex-col ml-3">
@@ -63,18 +66,19 @@
       </div>
 
       <div
-        v-if="seasons[0].image && seasons[0].image.original.length"
+        v-if="seasons[0].image && seasons[0].image.medium"
         class="flex flex-col mt-3 px-2 lg:px-8"
       >
         <h3 class="text-xl dark:text-white">Seasons</h3>
         <div class="flex flex-wrap mt-3 w-full">
-          <img
-            v-for="season of seasons"
-            :key="season.id"
-            class="w-[calc(25%-12px)] md:w-24 h-full mr-3 mb-3"
-            :src="season.image ? season.image.original : ''"
-            alt="season-image"
-          />
+          <div v-for="season of seasons" :key="season.id">
+            <NuxtImg
+              v-if="season.image"
+              class="w-[calc(25%-12px)] md:w-24 h-full mr-3 mb-3"
+              :src="season.image ? season.image.medium : ''"
+              alt="season-image"
+            />
+          </div>
         </div>
       </div>
       <div class="flex mt-3 px-2 lg:px-8 dark:text-white">
@@ -91,12 +95,13 @@ import type { TTvShow } from '~/types/types'
 
 interface ISeason {
   id: number
-  image: { original: string }
+  image: { medium: string }
 }
 const showSlide = ref(false)
 
 defineProps({
   show: { type: Object as PropType<TTvShow>, required: true },
+  isSearch: { type: Boolean, default: false },
 })
 
 const seasons = ref<ISeason[]>([])
