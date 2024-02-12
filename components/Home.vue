@@ -24,6 +24,7 @@
 import type { TGroup, TTvShow } from '~/types/types'
 
 const { data } = await useFetch<Array<TTvShow>>('https://api.tvmaze.com/shows')
+
 const genreGroups = computed(() => {
   if (data.value) return groupByGenre(data.value as Array<TTvShow>)
 })
