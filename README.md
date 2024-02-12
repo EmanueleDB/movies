@@ -7,6 +7,7 @@ To run the app, use the command: `pnpm run dev`
 To perform an ESLint check across the entire app and fix issues, use the command: `pnpm run fix`
 
 To run the tests, use the command: `pnpm run test`
+(I have no experience with the tests, but I was able to configure the dependencies to make them work and to add a few basic tests. I consider tests to be very important and I’m looking forward to gaining those skills.)
 
 # Framework
 
@@ -34,7 +35,7 @@ The API used in this project (which is free) does not offer many options. Theref
 
 On the homepage, users can scroll through the genres sections horizontally using a trackpad or Apple mouse by simply swiping right or left. For users with a standard mouse, arrows appear on hover. The arrows are set based on the number of shows in the viewport and the responsive media query. On mobile devices, users can swipe with their finger, so no arrows are displayed.
 
-The Slide component is custom-made and styled with Tailwind. It accepts two props. If `preventOuterClick` is passed, the user will not be able to close the slide by clicking outside the slide container. The slide mounts in the viewport, so there is no need to use `z-index` or similar properties. When the slide opens, another call is made to fetch the season for that specific show.
+The Slide component is custom-made and styled with Tailwind. It accepts a prop, if `preventOuterClick` is passed, the user will not be able to close the slide by clicking outside the slide container. The slide mounts in the viewport, so there is no need to use `z-index` or similar properties. When the slide opens, another call is made to fetch the season for that specific show.
 
 # Additional Features
 
