@@ -6,7 +6,7 @@
     ]"
     @click="fetchSeasons(show.id)"
   >
-    <NuxtImg
+    <img
       class="h-full object-cover rounded-lg transition-transform duration-200 hover:scale-95 hover:shadow-black hover:shadow-md"
       :src="show.image ? show.image.medium : '/placeholder.jpg'"
       :alt="show.image ? show.image.medium : 'placeholder'"
@@ -25,9 +25,9 @@
             {{ show.rating.average }}</span
           >
           <div class="flex mt-3">
-            <NuxtImg
+            <img
               class="w-48 h-60 mt-3"
-              :src="show.image.medium"
+              :src="show.image && show.image.medium ? show.image.medium : '/placeholder.jpg'"
               alt="image"
             />
             <div class="flex flex-col ml-3">
@@ -72,10 +72,12 @@
         <h3 class="text-xl dark:text-white">Seasons</h3>
         <div class="flex flex-wrap mt-3 w-full">
           <div v-for="season of seasons" :key="season.id">
-            <NuxtImg
+            <img
               v-if="season.image"
               class="w-[calc(25%-12px)] md:w-24 h-full mr-3 mb-3"
-              :src="season.image ? season.image.medium : ''"
+              :src="
+                season.image && season.image.medium ? season.image.medium : ''
+              "
               alt="season-image"
             />
           </div>

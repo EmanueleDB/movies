@@ -8,10 +8,10 @@ export default defineNuxtConfig({
     'nuxt-security',
     '@nuxtjs/tailwindcss',
     'nuxt-icon',
-    '@nuxt/image',
     '@vueuse/nuxt',
     '@nuxt/test-utils/module',
     '@nuxtjs/color-mode',
+    "@nuxt/image"
   ],
   colorMode: {
     classSuffix: '',
