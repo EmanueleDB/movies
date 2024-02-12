@@ -1,7 +1,7 @@
 <template>
   <nav class="h-24 bg-navigation flex items-center justify-start w-full">
     <div class="h-full ml-4 w-full">
-      <img src="/logo.png" alt="logo" class="h-24" />
+      <NuxtImg src="/logo.png" alt="logo" class="h-24" />
     </div>
     <div class="pr-4 lg:pr-10">
       <Icon

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!data" class="flex justify-center mt-3">
+  <div v-if="!genreGroups" class="flex justify-center mt-3">
     <Icon
       class="text-primary dark:text-white"
       name="svg-spinners:blocks-shuffle-3"
@@ -13,6 +13,7 @@
         v-for="(item, index) of foundTvShows"
         :key="index"
         class="mb-3"
+        is-search
         :show="hasFilter(item)"
       />
     </div>
@@ -23,10 +24,8 @@
 <script setup lang="ts">
 import type { TGroup, TTvShow } from '~/types/types'
 
-const { data } = await useFetch<Array<TTvShow>>(
-  'https://api.tvmaze.com/shows',
-  { server: false },
-)
+const { data } = await useFetch<Array<TTvShow>>('https://api.tvmaze.com/shows')
+
 const genreGroups = computed(() => {
   if (data.value) return groupByGenre(data.value as Array<TTvShow>)
 })
