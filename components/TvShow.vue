@@ -15,7 +15,9 @@
     <Slide v-if="showSlide" @close="showSlide = false">
       <div class="flex">
         <div class="flex flex-col px-2 lg:px-8">
-          <h1 class="text-2xl dark:text-white">{{ show.name }}</h1>
+          <h1 v-if="show.name" class="text-2xl dark:text-white">
+            {{ show.name }}
+          </h1>
           <span class="dark:text-white">
             <Icon
               class="text-primary dark:text-white"
@@ -27,11 +29,15 @@
           <div class="flex mt-3">
             <img
               class="w-48 h-60 mt-3"
-              :src="show.image && show.image.medium ? show.image.medium : '/placeholder.jpg'"
+              :src="
+                show.image && show.image.medium
+                  ? show.image.medium
+                  : '/placeholder.jpg'
+              "
               alt="image"
             />
             <div class="flex flex-col ml-3">
-              <span class="mt-3 dark:text-white">
+              <span v-if="show.network" class="mt-3 dark:text-white">
                 <Icon
                   class="text-primary dark:text-white"
                   name="material-symbols:connected-tv-outline-sharp"
