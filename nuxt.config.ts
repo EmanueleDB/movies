@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/test-utils/module',
     '@nuxtjs/color-mode',
-    "@nuxt/image"
+    '@nuxt/image',
   ],
   colorMode: {
     classSuffix: '',
