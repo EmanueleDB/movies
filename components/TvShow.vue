@@ -61,8 +61,9 @@
           </div>
         </div>
       </div>
+
       <div
-        v-if="seasons[0].image.length"
+        v-if="seasons[0].image && seasons[0].image.original.length"
         class="flex flex-col mt-3 px-2 lg:px-8"
       >
         <h3 class="text-xl dark:text-white">Seasons</h3>
@@ -71,7 +72,7 @@
             v-for="season of seasons"
             :key="season.id"
             class="w-[calc(25%-12px)] md:w-24 h-full mr-3 mb-3"
-            :src="season.image ? season.image : ''"
+            :src="season.image ? season.image.original : ''"
             alt="season-image"
           />
         </div>
@@ -90,7 +91,7 @@ import type { TTvShow } from '~/types/types'
 
 interface ISeason {
   id: number
-  image: string
+  image: { original: string }
 }
 const showSlide = ref(false)
 
@@ -106,12 +107,9 @@ const fetchSeasons = async (id: number) => {
   )
   if (!data) {
     console.log('There are no seasons for this Tv show')
-    return
   } else {
-    data.forEach((season: ISeason) => {
-      seasons.value.push({ id: season.id, image: season.image })
-    })
+    seasons.value = data
+    showSlide.value = true
   }
-  showSlide.value = true
 }
 </script>
